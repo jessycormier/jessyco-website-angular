@@ -1,3 +1,42 @@
 @tailwind base;
+
+@layer base {
+
+	html,
+	body {
+		height: 100%;
+	}
+
+	main a {
+		@apply transition-colors;
+		@apply text-blue-600 font-bold;
+		@apply hover:text-blue-800;
+
+		@apply dark:text-blue-500;
+		@apply hover:dark:text-yellow-300;
+
+		&.active {
+			@apply dark:text-gray-600 text-white;
+		}
+	}
+
+    mark {
+        @apply inline-block;
+        @apply font-mono;
+        @apply bg-gray-900;
+        @apply text-white;        
+        @apply font-bold; 
+        @apply rounded;
+        @apply py-1 ;
+        @apply px-2;
+        @apply my-2;
+
+        @apply dark:bg-white;
+        @apply dark:text-gray-900;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;
+
+
