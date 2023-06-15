@@ -1,53 +1,105 @@
-<div class="flex items-center content-between">
-  <nav class="rounded-md w-full my-10">
-      <ol class="list-reset flex">
-          <li
-              [ngClass]="{ 'dark:bg-gray-50 dark:text-gray-900 bg-gray-900 text-gray-50 font-bold px-2 rounded': true }">
-              Index
-          </li>
-          <!-- <li><span class="text-gray-500 mx-2">/</span></li>
+<app-skip-to-main />
 
-          <li class="dark:bg-gray-50 dark:text-gray-900 bg-gray-900 text-gray-50 font-bold px-2 rounded">
-              You're Here Link
-          </li> -->
-      </ol>
-  </nav>
-  <!-- <button (click)="onToggleThemeClick()"
-      class="cursor-pointer w-10 h-10 p-3 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors">
-      <ng-container *ngIf="themeSwitcher.themeMode.value === ThemeMode.Light">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-              class="w-4 h-4 text-gray-800 dark:text-gray-200">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-              </path>
-          </svg>
-      </ng-container>
-      <ng-container *ngIf="themeSwitcher.themeMode.value === ThemeMode.Dark">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-              class="w-4 h-4 text-gray-800 dark:text-gray-200">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-          </svg>
-      </ng-container>
-  </button> -->
+<div class="container mx-auto px-4">
+  <header class="flex flex-wrap items-center content-between sm:justify-end font-mono my-16 gap-4 sm:gap-0">
+    <app-logo-text />
+    <nav aria-label="main menu" class="grow">
+      <ul class="list-reset flex justify-center sm:justify-end items-center gap-1">
+        <li *ngFor="let navItem of navItems"
+          [class]="isCurrentPage ? 'bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900 font-bold px-2 rounded' : 'px-2'">
+          <a class="p-2 my-3" [href]="navItem.route" [class.active]="isCurrentPage"
+            [attr.aria-label]="navItem.ariaDetail" [attr.aria-current]="isCurrentPage ? 'page' : false"
+            [rel]="navItem.external ? 'external' : undefined">
+            {{navItem.title}}
+          </a>
+        </li>
+        <!-- <li>
+          <DarkModeToggle />
+        </li> -->
+      </ul>
+    </nav>
+  </header>
 </div>
 
-
-
-
-<main>
+<main id="main" tabindex="-1" style="outline:transparent">
   <router-outlet></router-outlet>
 </main>
 
+<div class="container mx-auto px-4">
+  <footer class="py-4 sm:py-6 mt-12">
 
+    <hr class="my-6 lg:my-8 border-gray-200 sm:mx-auto dark:border-gray-800 " />
 
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <div class="mb-4 text-center hidden">
+          <app-logo-text cssClasses="text-2xl"></app-logo-text>
+        </div>
+        <div class="pl-1 text-xs">
+          <span class="text-gray-700 dark:text-gray-600 font-mono">
+            &copy;{{nowYear}}
+            Jessy Cormier
+            <br />
+            Built with ☕,
+            <a href="https://angular.io">
+              Angular
+            </a>
+            and <a href="https://tailwindcss.com"> tailwindcss </a>
+          </span>
+        </div>
+        <div class="pl-1 text-xs pt-2 flex mt-4 space-x-2 sm:justify-left sm:mt-0">
+          <!-- {#each socialLinks as { href, sr, icon }}
+					<a {href} class="text-gray-700 hover:text-gray-900 dark:hover:text-white cursor-pointer p-1">
+						<svelte:component this={icon} />
+						<span class="sr-only">{sr}</span>
+					</a>
+				{/each} -->
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Navigation</h2>
+          <ul class="text-gray-700 dark:text-gray-600">
+            <li>
+              <a href="/posts" class="hover:underline ">Posts</a>
+            </li>
+            <li>
+              <a href="/posts/category/site-update" class="hover:underline">Site Updates</a>
+            </li>
+            <li>
+              <a href="/rss.xml" class="hover:underline">RSS</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">The Happenings</h2>
+          <ul class="text-gray-700 dark:text-gray-600">
+            <li>
+              <a href="/now" class="hover:underline">Now</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/jessycormier" class="hover:underline">Twitter</a>
+            </li>
+            <li>
+              <a href="/todos" class="hover:underline">Todos</a>
+            </li>
+          </ul>
+        </div>
 
-<footer class='text-gray-700'>
-  <div class="container mx-auto px-5">
-    <div class="py-28 flex flex-col lg:flex-row items-center">
-      <span class="font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-        Built with ☕: Angular, TypeScript, and TailwindCSS.
-      </span>
+        <!-- <div>
+				<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+				<ul class="text-gray-700 dark:text-gray-600">
+					<li class="mb-4">
+						<a href="#" class="hover:underline">Privacy Policy</a>
+					</li>
+					<li>
+						<a href="#" class="hover:underline">Terms &amp; Conditions</a>
+					</li>
+				</ul>
+			</div> -->
+      </div>
     </div>
-  </div>
-</footer>
+
+    <!-- <div class="sm:flex sm:items-center sm:justify-between mt-16" /> -->
+  </footer>
+</div>
