@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PostsRoutingModule } from './posts-routing.module';
 import { PostPageComponent } from './pages/post-page/post-page.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
   ],
   imports: [
     CommonModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    MarkdownModule.forChild(),
   ]
 })
 export class PostsModule { }

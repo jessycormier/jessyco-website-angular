@@ -1,19 +1,25 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
+import { AnimatedTextComponent } from '../components/animated-text/animated-text.component';
+import { ProfilePictureComponent } from '../components/profile-picture/profile-picture.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProfilePictureComponent } from '../components/profile-picture/profile-picture.component';
+import { NowPageComponent } from './pages/now-page/now-page.component';
+import { TodoPageComponent } from './pages/todo-page/todo-page.component';
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    NowPageComponent,
+    TodoPageComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ProfilePictureComponent
+    ProfilePictureComponent,
+    AnimatedTextComponent,
   ]
 })
 export class HomeModule { }

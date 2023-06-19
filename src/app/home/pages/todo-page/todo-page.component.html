@@ -1,0 +1,11 @@
+<div class="container mx-auto px-4">
+	<section class="prose prose-stone max-w-none dark:prose-invert lg:prose-xl m-auto mt-24">
+		<h1>&lbrace; Todos &rbrace;</h1>
+		<p>A list of todos in no particular order and most likely out of date</p>
+		<ul class="font-mono">
+			<li *ngFor="let todo of todos" [class.line-through]="todo.completed">
+				{{todo.icon}} {{todo.desc}}
+			</li>
+		</ul>
+	</section>
+</div>

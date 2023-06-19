@@ -3,16 +3,15 @@ import { CommonModule } from '@angular/common';
 import { JessyCormierComponent } from '../jessy-cormier/jessy-cormier.component';
 import { LogoComponent } from '../logo/logo.component';
 
-// TODO: Change Name to Brand
 @Component({
-  selector: 'app-logo-text',
+  selector: 'app-brand',
   standalone: true,
   imports: [CommonModule, JessyCormierComponent, LogoComponent],
-  templateUrl: './logo-text.component.html',
+  templateUrl: './brand.component.html',
   styles: [
   ]
 })
-export class LogoTextComponent {
+export class BrandComponent {
   
   @Input()  cssClasses = 'text-3xl';
   

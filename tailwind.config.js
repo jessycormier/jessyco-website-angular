@@ -7,7 +7,23 @@ module.exports = {
 	],
 	darkMode: 'media', //false or 'media' or 'class'
 	theme: {
-		extend: {},
+		extend: {
+			animation: {
+				text: 'text 16s ease infinite'
+			},
+			keyframes: {
+				text: {
+					'0%, 100%': {
+						'background-size': '2000% 2000%',
+						'background-position': 'left center'
+					},
+					'50%': {
+						'background-size': '2000% 2000%',
+						'background-position': 'right center'
+					}
+				}
+			}
+		},
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',
@@ -35,6 +51,6 @@ module.exports = {
 			black: colors.black
 		}
 	},
-	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')]
+	plugins: [require('@tailwindcss/typography')]
 }
 

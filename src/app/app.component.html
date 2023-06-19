@@ -2,7 +2,7 @@
 
 <div class="container mx-auto px-4">
   <header class="flex flex-wrap items-center content-between sm:justify-end font-mono my-16 gap-4 sm:gap-0">
-    <app-logo-text />
+    <app-brand />
     <nav aria-label="main menu" class="grow">
       <ul class="list-reset flex justify-center sm:justify-end items-center gap-1">
         <li *ngFor="let navItem of navItems"
@@ -32,9 +32,9 @@
 
     <div class="md:flex md:justify-between">
       <div class="mb-6 md:mb-0">
-        <div class="mb-4 text-center hidden">
-          <app-logo-text cssClasses="text-2xl"></app-logo-text>
-        </div>
+        <!-- <div class="mb-4 text-center hidden">
+          <app-brand cssClasses="text-2xl" />
+        </div> -->
         <div class="pl-1 text-xs">
           <span class="text-gray-700 dark:text-gray-600 font-mono">
             &copy;{{nowYear}}
@@ -48,12 +48,17 @@
           </span>
         </div>
         <div class="pl-1 text-xs pt-2 flex mt-4 space-x-2 sm:justify-left sm:mt-0">
-          <!-- {#each socialLinks as { href, sr, icon }}
-					<a {href} class="text-gray-700 hover:text-gray-900 dark:hover:text-white cursor-pointer p-1">
-						<svelte:component this={icon} />
-						<span class="sr-only">{sr}</span>
+					
+          <a href="https://github.com/jessycormier" class="text-gray-700 hover:text-gray-900 dark:hover:text-white cursor-pointer p-1">
+						<app-github-icon />
+						<span class="sr-only">Jessy's GitHub</span>
 					</a>
-				{/each} -->
+          
+          <a href="https://twitter.com/jessycormier" class="text-gray-700 hover:text-gray-900 dark:hover:text-white cursor-pointer p-1">
+						<app-twitter-icon />
+						<span class="sr-only">Jessy's Twitter</span>
+					</a>
+
         </div>
       </div>
       <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
