@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JessyCormierComponent } from '../jessy-cormier/jessy-cormier.component';
 import { LogoComponent } from '../logo/logo.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @Component({
   selector: 'app-brand',
   standalone: true,
-  imports: [CommonModule, JessyCormierComponent, LogoComponent],
+  imports: [CommonModule, JessyCormierComponent, LogoComponent, AppRoutingModule],
   templateUrl: './brand.component.html',
   styles: [
   ]

@@ -7,7 +7,7 @@
       <ul class="list-reset flex justify-center sm:justify-end items-center gap-1">
         <li *ngFor="let navItem of navItems"
           [class]="isCurrentPage ? 'bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900 font-bold px-2 rounded' : 'px-2'">
-          <a class="p-2 my-3" [href]="navItem.route" [class.active]="isCurrentPage"
+          <a class="p-2 my-3" [routerLink]="navItem.route" routerLinkActive="dark:bg-gray-50 dark:text-gray-900 bg-gray-900 text-gray-50 font-bold px-2 rounded"
             [attr.aria-label]="navItem.ariaDetail" [attr.aria-current]="isCurrentPage ? 'page' : false"
             [rel]="navItem.external ? 'external' : undefined">
             {{navItem.title}}
@@ -66,10 +66,10 @@
           <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Navigation</h2>
           <ul class="text-gray-700 dark:text-gray-600">
             <li>
-              <a href="/posts" class="hover:underline ">Posts</a>
+              <a routerLink="posts" class="hover:underline ">Posts</a>
             </li>
             <li>
-              <a href="/posts/category/site-update" class="hover:underline">Site Updates</a>
+              <a routerLink="posts" class="hover:underline">Site Updates</a>
             </li>
             <li>
               <a href="/rss.xml" class="hover:underline">RSS</a>
@@ -80,13 +80,13 @@
           <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">The Happenings</h2>
           <ul class="text-gray-700 dark:text-gray-600">
             <li>
-              <a href="/now" class="hover:underline">Now</a>
+              <a routerLink="now" class="hover:underline">Now</a>
             </li>
             <li>
               <a href="https://twitter.com/jessycormier" class="hover:underline">Twitter</a>
             </li>
             <li>
-              <a href="/todos" class="hover:underline">Todos</a>
+              <a routerLink="todos" class="hover:underline">Todos</a>
             </li>
           </ul>
         </div>

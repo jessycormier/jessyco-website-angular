@@ -1,49 +1,12 @@
+<button (click)="goBack()" aria-label="Go back to previous page" class="w-full">
+    <app-image-hover [showDetails]="true" title="Go Back">
+        <img src="/assets/post-bg.svg" alt="" class="blockh-72 object-cover w-full ease-in-out" />
+    </app-image-hover>
+</button>
+
+
 <div class="container mx-auto px-4">
-
-
     <div class="prose prose-stone max-w-none dark:prose-invert lg:prose-xl m-auto mt-24">
-        <markdown ngPreserveWhitespaces>
-            # Hello
-    
-            this is a test
-    
-            ```js
-            What does this look like?
-            ```
-    
-            nice I think?
-    
-            ---
-    
-            **How about** this stuff?
-    
-        </markdown>
-
-        <h1>Hello</h1>
-
-        <p>
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping byTHis is great thanks for stopping byTHis is great thanks for stopping
-            byTHis is great thanks for stopping byTHis is great thanks for stopping byTHis is great thanks for stopping
-            by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-            THis is great thanks for stopping by
-
-            <strong>nice</strong>
-            and what about THis <em>sdflkj</em>
-        </p>
+        <markdown ngPreserveWhitespaces [src]="pageUrl()" *ngIf="pageUrl()" />
     </div>
 </div>
