@@ -33,9 +33,7 @@
               "src/content"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/marked/marked.min.js",
@@ -105,9 +103,7 @@
               "src/content"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/marked/marked.min.js",
