@@ -3,12 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-list-page',
   templateUrl: './list-page.component.html',
-  styles: [
-  ]
 })
 export class ListPageComponent {
 
   posts = [
+    { url: '/posts/1900-11-22-test-page',             title: 'Test Page' },
     { url: '/posts/2022-09-12-making-a-mark',         title: 'Making A Mark' },
     { url: '/posts/2022-12-03-going-back-home',       title: 'Going back home' },
     { url: '/posts/2022-12-29-guess-i-lied',          title: 'I guess I lied?' },

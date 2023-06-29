@@ -1,0 +1,19 @@
+<header class="flex flex-wrap items-center content-between sm:justify-end font-mono my-16 gap-4 sm:gap-0">
+    <app-brand />
+    <nav aria-label="main menu" class="grow">
+        <ul class="list-reset flex justify-center sm:justify-end items-center gap-1">
+            <li *ngFor="let navItem of navItems"
+                [class]="isCurrentPage ? 'bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900 font-bold px-2 rounded' : 'px-2'">
+                <a class="p-2 my-3" [routerLink]="navItem.route"
+                    routerLinkActive="dark:bg-gray-50 dark:text-gray-900 bg-gray-900 text-gray-50 font-bold px-2 rounded"
+                    [attr.aria-label]="navItem.ariaDetail" [attr.aria-current]="isCurrentPage ? 'page' : false"
+                    [rel]="navItem.external ? 'external' : undefined">
+                    {{navItem.title}}
+                </a>
+            </li>
+            <!-- <li>
+                <DarkModeToggle />
+            </li> -->
+        </ul>
+    </nav>
+</header>
