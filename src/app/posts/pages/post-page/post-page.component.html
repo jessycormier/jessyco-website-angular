@@ -1,12 +1,28 @@
 <button (click)="goBack()" aria-label="Go back to previous page" class="w-full">
     <app-image-hover [showDetails]="true" title="Go Back">
-        <img src="/assets/post-bg.svg" alt="" class="blockh-72 object-cover w-full ease-in-out" />
+        <img src="/assets/post-bg.svg" alt="" class="block h-72 object-cover w-full ease-in-out" />
     </app-image-hover>
 </button>
 
 
 <div class="container mx-auto px-4">
     <div class="prose prose-stone max-w-none dark:prose-invert lg:prose-xl m-auto mt-24">
-        <markdown ngPreserveWhitespaces [src]="pageUrl()" *ngIf="pageUrl()" />
+        <h1><app-animated-text>{{ postDetails()?.title }}</app-animated-text></h1>
+        
+        <div class="mb-8 text-sm text-gray-500">
+            by <span class="text-gray-700 dark:text-gray-300">Jessy Cormier</span> 
+            - <span class="text-gray-700 dark:text-gray-300">
+            {{dayjs(postDetails()?.date).fromNow()}}
+            </span> 
+            <small>{{dayjs(postDetails()?.date).toString()}}</small>
+        </div>
+
+        <div [innerHTML]="postContent()"></div>
     </div>
+
+    <hr class="mt-24 mb-12">
+    <div class="mt-4"><strong>Tags</strong></div>
+    <aside class="flex flex-wrap mb-6 space-x-2">
+        <app-tag *ngFor="let c of postDetails()?.categories" [category]="c" />
+    </aside>
 </div>

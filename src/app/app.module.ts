@@ -1,7 +1,6 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrandComponent } from './components/brand/brand.component';
@@ -15,7 +14,6 @@ import { TwitterIconComponent } from './components/twitter-icon/twitter-icon.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
     BrandComponent,
     SkipToMainComponent,
     GithubIconComponent,
