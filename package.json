@@ -3,14 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "npm run build-content-info",
     "start": "ng serve",
+    "prebuild": "node dist/jessyco/server/main.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run jessyco:serve-ssr",
     "serve:ssr": "node dist/jessyco/server/main.js",
+    "prebuild:ssr": "npm run build-content-info",
     "build:ssr": "ng build && ng run jessyco:server",
-    "prerender": "ng run jessyco:prerender"
+    "preprerender": "npm run build-content-info",
+    "prerender": "ng run jessyco:prerender",
+    "ts-node": "ts-node",
+    "build-content-info": "ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\" ./scripts/build-content-info.ts"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +30,7 @@
     "@angular/platform-server": "^16.0.0",
     "@angular/router": "^16.0.0",
     "@nguniversal/express-engine": "^16.0.2",
-    "dayjs": "^1.11.8",
+    "date-fns": "^2.30.0",
     "express": "^4.15.2",
     "marked": "^4.3.0",
     "prismjs": "^1.29.0",
@@ -35,7 +41,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.5",
-    "@angular/cli": "~16.0.5",
+    "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "^16.0.0",
     "@nguniversal/builders": "^16.0.2",
     "@tailwindcss/typography": "^0.5.9",
@@ -44,6 +50,7 @@
     "@types/marked": "^4.3.0",
     "@types/node": "^14.15.0",
     "autoprefixer": "^10.4.14",
+    "gray-matter": "^4.0.3",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -56,6 +63,7 @@
     "remark": "^14.0.3",
     "remark-frontmatter": "^4.0.1",
     "tailwindcss": "^3.3.2",
+    "ts-node": "^10.9.1",
     "typescript": "~5.0.2",
     "vfile-matter": "^5.0.0"
   }

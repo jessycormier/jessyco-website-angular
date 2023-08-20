@@ -30,13 +30,17 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/content"
+              "src/content",
+              {
+                "glob": "**/*",
+                "input": "src/generated",
+                "output": "assets"
+              }
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/marked/marked.min.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-javascript.min.js",
               "node_modules/prismjs/components/prism-css.min.js",
@@ -100,13 +104,17 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/content"
+              "src/content",
+              {
+                "glob": "**/*",
+                "input": "src/generated",
+                "output": "assets"
+              }
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/marked/marked.min.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-javascript.min.js",
               "node_modules/prismjs/components/prism-css.min.js",

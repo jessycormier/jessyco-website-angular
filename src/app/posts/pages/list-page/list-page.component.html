@@ -1,9 +1,47 @@
 <app-container>
-    <div class="prose prose-stone max-w-none dark:prose-invert lg:prose-xl m-auto mt-24">
-        <ul>
-            <li *ngFor="let post of posts">
-                <a [routerLink]="post.url">{{post.title}}</a>
-            </li>
-        </ul>
+
+    <div class="flex flex-col gap-12">
+        <article *ngFor="let post of posts;let index"
+            class="flex bg-white transition hover:shadow-xl dark:bg-gray-800 dark:shadow-gray-700/25 rounded">
+            <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+                <time [attr.datetime]="post.date"
+                    class="flex items-center justify-between gap-4 text-xs font-bold  text-gray-900 dark:text-white">
+                    <span>{{post.dateYear}}</span>
+                    <span class="w-px flex-1 bg-gray-900/10 dark:bg-white/10"></span>
+                    <span>
+                        <span>{{post.dateMonth}}</span>
+                        <span class="py-1"></span>
+                        <span>{{post.dateDay}}</span>
+                    </span>
+                </time>
+            </div>
+
+            <div class="basis-12 sm:basis-32 flex items-center">
+                <a routerLink="/posts/{{post.fileName}}">
+                    <app-image-hover [showDetails]="false">
+                        <img src="https://jessy.co/polybg/400x400/site-update-march-4th.svg" [alt]="post.title"
+                            class="h-32 object-cover w-full aspect-square motion-safe:group-hover:scale-125 transition duration-300 ease-in-out" />
+                    </app-image-hover>
+                </a>
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between">
+                <div class="border-l border-gray-900/10 p-4 dark:border-white/10 sm:!border-l-transparent sm:p-6">
+                    <a routerLink="/posts/{{post.fileName}}">
+                        <h3 class="font-bold uppercase text-gray-900 dark:text-white">
+                            {{post.title}}
+                        </h3>
+                    </a>
+
+                    <p class="mt-2 leading-relaxed text-gray-700 line-clamp-2 dark:text-gray-200">
+                        {{post.excerpt}}
+                    </p>
+
+                    <p class="mt-2">
+                        <app-tag *ngFor="let tag of post.categories" [category]="tag" />
+                    </p>
+                </div>
+            </div>
+        </article>
     </div>
 </app-container>

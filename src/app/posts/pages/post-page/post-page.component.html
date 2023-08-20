@@ -12,9 +12,9 @@
         <div class="mb-8 text-sm text-gray-500">
             by <span class="text-gray-700 dark:text-gray-300">Jessy Cormier</span> 
             - <span class="text-gray-700 dark:text-gray-300">
-            {{dayjs(postDetails()?.date).fromNow()}}
+            {{getDisplayDate()}}
             </span> 
-            <small>{{dayjs(postDetails()?.date).toString()}}</small>
+            [[[<small>{{getDetailedDate()}}</small>]]]
         </div>
 
         <div [innerHTML]="postContent()"></div>

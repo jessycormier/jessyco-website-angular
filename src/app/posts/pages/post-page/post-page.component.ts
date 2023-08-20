@@ -4,22 +4,8 @@ import { Component, Inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FrozenProcessor } from 'unified';
-
-
-import * as dayjs from 'dayjs';
-import * as relativeTime from 'dayjs/plugin/relativeTime';
-import * as timezone from 'dayjs/plugin/timezone';
-
-dayjs.extend(relativeTime);
-dayjs.extend(timezone);
-dayjs.tz.setDefault('Atlantic Standard Time');
-
-type Post = {
-  categories: undefined,
-  date: undefined | string | Date
-  excerpt: undefined | string,
-  title: undefined | string
-}
+import { Post } from './Post';
+import { formatDistanceToNow, format } from 'date-fns';
 
 @Component({
   selector: 'app-post-page',
@@ -27,8 +13,6 @@ type Post = {
 })
 export class PostPageComponent implements OnInit, OnDestroy {
 
-  dayjs = dayjs;
-  
   private subscriptions = new Subscription();
 
   postDetails = signal<Post | undefined>(undefined);
@@ -51,9 +35,9 @@ export class PostPageComponent implements OnInit, OnDestroy {
             { responseType: 'text' }
           ).subscribe({
             next: (response) => {
-              this.unified.process(response).then((file) => {
-                this.postDetails.set(this.getPageMetadata(file.data['matter']));
-                this.postContent.set(file?.value?.toString());
+              this.unified.process(response).then((vFile) => {
+                this.postDetails.set(this.getPageMetadata(vFile.data['matter']));
+                this.postContent.set(vFile?.value?.toString());
               });
             },
             error: (error) => console.log('error', error),
@@ -79,4 +63,15 @@ export class PostPageComponent implements OnInit, OnDestroy {
       title: matter?.title
     }
   }
+
+  getDisplayDate() {
+    const d = new Date(this.postDetails()?.date as string); 
+    return formatDistanceToNow(new Date(d), { addSuffix: true });
+  }
+
+  getDetailedDate() {
+    const d = new Date(this.postDetails()?.date as string);
+    return format(new Date(d), "LLL do yyyy");
+  }
+
 }
